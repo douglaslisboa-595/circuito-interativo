@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> DG Manutenção & ELETRONICA </title>
+  <title>DG Manutenção & ELETRONICA - Loja Online</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,7 +14,7 @@
     }
 
     header {
-      background: #000;
+      background: #00796b;
       color: white;
       padding: 20px 0;
       text-align: center;
@@ -29,7 +29,7 @@
     header h1 {
       margin: 0;
       font-weight: 700;
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
 
     main {
@@ -45,7 +45,6 @@
       border-radius: 10px;
       box-shadow: 0 6px 10px rgb(0 0 0 / 0.15);
       cursor: pointer;
-      position: relative;
       margin-bottom: 40px;
     }
 
@@ -113,6 +112,19 @@
       z-index: 1000;
     }
 
+    /* Carrinho */
+    .carrinho {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #00796b;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* Responsivo */
     @media(max-width: 600px) {
       .beneficios {
         flex-direction: column;
@@ -128,9 +140,8 @@
 <body>
 
 <header>
-  <!-- Substitua logo.png pelo nome correto se for diferente -->
   <img src="logo.png" alt="Logo DG Manutenção" />
-  <h1>DG MANUTENÇÃO & ELETRONICA </h1>
+  <h1>DG MANUTENÇÃO & ELETRONICA</h1>
 </header>
 
 <main>
@@ -162,14 +173,51 @@
     </div>
   </div>
 
-  <button class="btn-comprar" onclick="alert('Obrigado por comprar! Em breve entraremos em contato.')">
-    Comprar Agora
-  </button>
+  <button class="btn-comprar" onclick="adicionarAoCarrinho('Carregador XL4015', 129.90)">Comprar Agora</button>
 
   <div id="tooltip" class="tooltip"></div>
 </main>
 
+<div class="carrinho" onclick="verCarrinho()">Carrinho (0)</div>
+
 <script>
+  let carrinho = [];
+
+  // Adicionar produto ao carrinho
+  function adicionarAoCarrinho(nome, preco) {
+    carrinho.push({ nome, preco });
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    alert('Produto adicionado ao carrinho!');
+    atualizarCarrinho();
+  }
+
+  // Mostrar carrinho
+  function verCarrinho() {
+    const carrinhoData = JSON.parse(localStorage.getItem('carrinho') || '[]');
+    if (carrinhoData.length > 0) {
+      let resumoCarrinho = '';
+      let total = 0;
+      carrinhoData.forEach(item => {
+        resumoCarrinho += `${item.nome} - R$ ${item.preco.toFixed(2)}\n`;
+        total += item.preco;
+      });
+      resumoCarrinho += `\nTotal: R$ ${total.toFixed(2)}`;
+      alert(resumoCarrinho);
+    } else {
+      alert('O carrinho está vazio.');
+    }
+  }
+
+  // Atualizar número de itens no carrinho
+  function atualizarCarrinho() {
+    const carrinhoData = JSON.parse(localStorage.getItem('carrinho') || '[]');
+    document.querySelector('.carrinho').textContent = `Carrinho (${carrinhoData.length})`;
+  }
+
+  // Atualizar carrinho ao carregar a página
+  window.onload = atualizarCarrinho;
+
+  // Tooltip
   const tooltip = document.getElementById('tooltip');
 
   function mostrarTooltip(event, texto) {
@@ -199,3 +247,4 @@
 
 </body>
 </html>
+
