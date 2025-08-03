@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loja DG Manutenção – Produtos em Estoque</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #00796b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .produtos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .produto {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .produto img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 8px;
+    }
+
+    .produto h3 {
+      font-size: 1.25rem;
+      color: #00796b;
+      margin-top: 10px;
+    }
+
+    .produto p {
+      font-size: 1rem;
+      color: #555;
+      margin: 10px 0;
+    }
+
+    .produto .preco {
+      font-size: 1.5rem;
+      color: #d32f2f;
+      font-weight: 700;
+    }
+
+    .btn-comprar {
+      background: #00796b;
+      color: white;
+      font-size: 1.1rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-comprar:hover {
+      background: #004d40;
+    }
+
+    footer {
+      background-color: #00796b;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Loja DG Manutenção – Produtos em Estoque</h1>
+  </header>
+
+  <main>
+    <div class="produtos">
+      <!-- Produto 1 -->
+      <div class="produto">
+        <img src="produto1.jpg" alt="Carregador XL4015">
+        <h3>Carregador XL4015</h3>
+        <p>Carregador inteligente 12V com XL4015 para baterias de veículos e equipamentos.</p>
+        <p class="preco">R$ 129,90</p>
+        <button class="btn-comprar" onclick="alert('Produto adicionado ao carrinho!')">Comprar</button>
+      </div>
+
+      <!-- Produto 2 -->
+      <div class="produto">
+        <img src="produto2.jpg" alt="Fonte de Alimentação">
+        <h3>Fonte de Alimentação 19V</h3>
+        <p>Fonte de alimentação para carregar baterias de 12V. Ideal para sistemas de energia.</p>
+        <p class="preco">R$ 89,90</p>
+        <button class="btn-comprar" onclick="alert('Produto adicionado ao carrinho!')">Comprar</button>
+      </div>
+
+      <!-- Produto 3 -->
+      <div class="produto">
+        <img src="produto3.jpg" alt="Diodo Schottky">
+        <h3>Diodo Schottky</h3>
+        <p>Diodo Schottky de alta eficiência para proteger circuitos contra corrente reversa.</p>
+        <p class="preco">R$ 14,90</p>
+        <button class="btn-comprar" onclick="alert('Produto adicionado ao carrinho!')">Comprar</button>
+      </div>
+
+      <!-- Mais produtos podem ser adicionados da mesma forma -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 DG Manutenção | Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>
