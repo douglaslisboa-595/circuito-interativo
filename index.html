@@ -1,84 +1,186 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Circuito Interativo: Carregador 12V com XL4015</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carregador Inteligente 12V com XL4015 – Compre Já!</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #00796b;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
       text-align: center;
     }
-    h1 {
-      margin-top: 20px;
-    }
-    .circuito {
-      position: relative;
-      width: 800px;
-      height: 300px;
-      margin: 40px auto;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    .componente {
-      position: absolute;
-      padding: 10px;
-      background-color: #e0f7fa;
-      border: 1px solid #26c6da;
-      border-radius: 6px;
+    .produto-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 6px 10px rgb(0 0 0 / 0.15);
       cursor: pointer;
+      position: relative;
+      margin-bottom: 40px;
     }
+    .descricao {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    .beneficios {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .beneficio {
+      background: #e0f2f1;
+      border-radius: 8px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+      cursor: pointer;
+      position: relative;
+    }
+    .beneficio:hover {
+      background: #b2dfdb;
+    }
+    .beneficio h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: #00796b;
+    }
+    .btn-comprar {
+      background: #00796b;
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      padding: 15px 40px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      box-shadow: 0 4px 8px rgb(0 0 0 / 0.15);
+    }
+    .btn-comprar:hover {
+      background: #004d40;
+    }
+
+    /* Tooltip */
     .tooltip {
       display: none;
       position: absolute;
-      background: #333;
-      color: white;
-      padding: 8px;
-      font-size: 13px;
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      padding: 8px 12px;
       border-radius: 5px;
-      z-index: 100;
+      font-size: 14px;
+      pointer-events: none;
+      max-width: 240px;
+      z-index: 1000;
+    }
+
+    /* Responsivo */
+    @media(max-width: 600px) {
+      .beneficios {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .beneficio {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Circuito Interativo: Carregador de Bateria 12V</h1>
-  <p>Passe o mouse sobre os componentes para ver as descrições.</p>
+<header>
+  <h1>Carregador Inteligente 12V com XL4015</h1>
+</header>
 
-  <div class="circuito">
-    <div class="componente" style="top: 100px; left: 40px;"
-         onmouseover="mostrarTooltip(event, 'Fonte 19V – Alimenta o XL4015')" 
-         onmouseout="esconderTooltip()">🔌 Fonte 19V</div>
+<main>
 
-    <div class="componente" style="top: 100px; left: 200px;"
-         onmouseover="mostrarTooltip(event, 'Conversor Buck XL4015 – Regula tensão e corrente')" 
-         onmouseout="esconderTooltip()">⚙️ XL4015</div>
+  <img src="https://i.imgur.com/GVeIUDg.png" alt="Diagrama do Carregador XL4015" class="produto-img" 
+       onmousemove="mostrarTooltip(event, 'Circuito eficiente e seguro para carregar baterias 12V')"
+       onmouseout="esconderTooltip()" />
 
-    <div class="componente" style="top: 100px; left: 380px;"
-         onmouseover="mostrarTooltip(event, 'Diodo Schottky – Impede corrente reversa')" 
-         onmouseout="esconderTooltip()">🔁 Diodo</div>
+  <p class="descricao">
+    Nosso carregador com regulador XL4015 oferece carregamento rápido, eficiente e proteção total para sua bateria 12V. Ideal para uso residencial, automotivo e industrial.
+  </p>
 
-    <div class="componente" style="top: 100px; left: 540px;"
-         onmouseover="mostrarTooltip(event, 'Bateria 12V – Armazena energia regulada')" 
-         onmouseout="esconderTooltip()">🔋 Bateria 12V</div>
-
-    <div id="tooltip" class="tooltip"></div>
+  <div class="beneficios">
+    <div class="beneficio" onmousemove="mostrarTooltip(event, 'Converte tensão de 19V para 12V estáveis')"
+         onmouseout="esconderTooltip()">
+      <h3>Regulador XL4015</h3>
+      Conversão precisa de tensão e corrente
+    </div>
+    <div class="beneficio" onmousemove="mostrarTooltip(event, 'Protege contra sobrecarga e inversão de polaridade')"
+         onmouseout="esconderTooltip()">
+      <h3>Segurança</h3>
+      Proteção contra curto-circuito e sobrecarga
+    </div>
+    <div class="beneficio" onmousemove="mostrarTooltip(event, 'Alta eficiência para menor desperdício')"
+         onmouseout="esconderTooltip()">
+      <h3>Alta Eficiência</h3>
+      Menor consumo de energia e aquecimento
+    </div>
   </div>
 
-  <script>
-    const tooltip = document.getElementById('tooltip');
-    function mostrarTooltip(event, texto) {
-      tooltip.style.display = 'block';
-      tooltip.innerText = texto;
-      tooltip.style.top = (event.clientY + 15) + 'px';
-      tooltip.style.left = (event.clientX + 15) + 'px';
+  <button class="btn-comprar" onclick="alert('Obrigado por comprar! Em breve entraremos em contato.')">
+    Comprar Agora
+  </button>
+
+  <div id="tooltip" class="tooltip"></div>
+</main>
+
+<script>
+  const tooltip = document.getElementById('tooltip');
+
+  function mostrarTooltip(event, texto) {
+    tooltip.style.display = 'block';
+    tooltip.textContent = texto;
+
+    // Posiciona tooltip respeitando bordas da janela
+    const padding = 10;
+    let top = event.clientY + 20;
+    let left = event.clientX + 20;
+    const tooltipRect = tooltip.getBoundingClientRect();
+
+    if (top + tooltipRect.height > window.innerHeight) {
+      top = event.clientY - tooltipRect.height - 10;
     }
-    function esconderTooltip() {
-      tooltip.style.display = 'none';
+    if (left + tooltipRect.width > window.innerWidth) {
+      left = event.clientX - tooltipRect.width - 10;
     }
-  </script>
+
+    tooltip.style.top = top + 'px';
+    tooltip.style.left = left + 'px';
+  }
+
+  function esconderTooltip() {
+    tooltip.style.display = 'none';
+  }
+</script>
 
 </body>
 </html>
-Adicionar arquivo index.html com circuito interativo
+
