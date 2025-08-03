@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Circuito Interativo: Carregador 12V com XL4015</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 20px;
+    }
+    .circuito {
+      position: relative;
+      width: 800px;
+      height: 300px;
+      margin: 40px auto;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .componente {
+      position: absolute;
+      padding: 10px;
+      background-color: #e0f7fa;
+      border: 1px solid #26c6da;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .tooltip {
+      display: none;
+      position: absolute;
+      background: #333;
+      color: white;
+      padding: 8px;
+      font-size: 13px;
+      border-radius: 5px;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Circuito Interativo: Carregador de Bateria 12V</h1>
+  <p>Passe o mouse sobre os componentes para ver as descrições.</p>
+
+  <div class="circuito">
+    <div class="componente" style="top: 100px; left: 40px;"
+         onmouseover="mostrarTooltip(event, 'Fonte 19V – Alimenta o XL4015')" 
+         onmouseout="esconderTooltip()">🔌 Fonte 19V</div>
+
+    <div class="componente" style="top: 100px; left: 200px;"
+         onmouseover="mostrarTooltip(event, 'Conversor Buck XL4015 – Regula tensão e corrente')" 
+         onmouseout="esconderTooltip()">⚙️ XL4015</div>
+
+    <div class="componente" style="top: 100px; left: 380px;"
+         onmouseover="mostrarTooltip(event, 'Diodo Schottky – Impede corrente reversa')" 
+         onmouseout="esconderTooltip()">🔁 Diodo</div>
+
+    <div class="componente" style="top: 100px; left: 540px;"
+         onmouseover="mostrarTooltip(event, 'Bateria 12V – Armazena energia regulada')" 
+         onmouseout="esconderTooltip()">🔋 Bateria 12V</div>
+
+    <div id="tooltip" class="tooltip"></div>
+  </div>
+
+  <script>
+    const tooltip = document.getElementById('tooltip');
+    function mostrarTooltip(event, texto) {
+      tooltip.style.display = 'block';
+      tooltip.innerText = texto;
+      tooltip.style.top = (event.clientY + 15) + 'px';
+      tooltip.style.left = (event.clientX + 15) + 'px';
+    }
+    function esconderTooltip() {
+      tooltip.style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
+Adicionar arquivo index.html com circuito interativo
